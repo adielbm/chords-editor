@@ -149,25 +149,24 @@ function buildTheme(): Extension {
     '.cm-chords-line--label': {
       color: '#374151',
       fontWeight: '500',
-      backgroundColor: '#def2ff',
+      backgroundColor: '#e9f6ff',
     },
     '.cm-chords-label': {
-      color: '#c636a4',
+      color: '#006fb9',
       fontWeight: '600',
-      backgroundColor: 'rgba(55, 65, 81, 0.06)',
     },
     '.cm-chords-lyrics': {
       color: '#111827',
     },
     '.cm-chords-line--metadata': {
-      color: '#00a395',
+      color: '#f175c1',
       fontWeight: 'bold',
     },
     '.cm-chords-line--lyrics': {
       color: '#111827',
     },
     '.cm-chords-line--chord-only': {
-      color: '#3e579b',
+      color: '#00aa6d',
     fontWeight: 'bold'
     },
     '.cm-chords-line--error': {
@@ -180,11 +179,8 @@ function buildTheme(): Extension {
       backgroundColor: 'transparent',
     },
     '.cm-chords-chord': {
-      color: '#1d4ed8',
+      color: '#3c65d3',
       fontWeight: '700',
-      borderRadius: '0',
-      padding: '0 2px',
-      backgroundColor: 'rgba(37, 99, 235, 0.07)',
     },
     '.cm-chords-chord--invalid': {
       color: '#b91c1c',
