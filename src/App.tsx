@@ -68,6 +68,12 @@ export function App() {
   function handleMetadataChange(entries: MetadataEntry[]) {
     setMetadataEntries(entries);
     setText((currentText) => replaceMetadataHeader(currentText, serializeMetadata(entries)));
+    // Keep the editor filename in sync with the title metadata field.
+    const titleEntry = entries.find((e) => e.key === 'title');
+    if (titleEntry) {
+      const titleValue = titleEntry.value.trim() || 'untitled';
+      setFileName(normalizeFileName(titleValue));
+    }
   }
 
   function handleOpenFile() {
@@ -109,16 +115,10 @@ export function App() {
       return;
     }
 
-    // Ensure title metadata matches the file name (hyphenated, without extension)
-    const hyphenated = normalizeFileName(fileName).replace(/\.chords$/i, '');
+    // Use the title metadata as the basis for the exported filename.
     const entriesForExport = metadataEntries.map((e) => ({ ...e }));
-    const titleIndex = entriesForExport.findIndex((e) => e.key === 'title');
-    if (titleIndex >= 0) {
-      entriesForExport[titleIndex].value = hyphenated;
-    } else {
-      entriesForExport.unshift({ key: 'title', value: hyphenated });
-    }
-
+    const titleValue = entriesForExport.find((e) => e.key === 'title')?.value ?? '';
+    const exportBase = titleValue.trim() !== '' ? normalizeFileName(titleValue) : normalizeFileName(fileName);
     const metadataLines = serializeMetadata(entriesForExport);
     const withMetadata = replaceMetadataHeader(text, metadataLines);
 
@@ -128,7 +128,7 @@ export function App() {
       .filter((line) => line.trim() !== '')
       .join('\n');
 
-    downloadText(normalizeFileName(fileName), exportText);
+    downloadText(exportBase, exportText);
   }
 
   return (
