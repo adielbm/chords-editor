@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "metadata": {
+    "required": ["title", "artist"],
+    "optional": ["capo", "comments"],
+    "validKeys": ["title", "artist", "capo", "comments"],
+    "customKeysAllowed": false
+  },
+  "lineTypes": {
+    "metadata": {
+      "pattern": "^\\{([A-Za-z_][A-Za-z0-9_-]*):\\s*(.*)\\}$"
+    },
+    "label": {
+      "pattern": "^\\{([^:]*)\\}$"
+    },
+    "chordOnly": {
+      "tokenPattern": "^(?:[A-G](?:#|b)?(?:maj7|maj9|maj11|maj13|m7b5|mMaj7|m7|m6|m9|m11|m13|m|dim|aug|sus2|sus4|add9|7|6|9|11|13)?(?:/[A-G](?:#|b)?)?)$",
+      "linePattern": "^\\s*(?:[A-G](?:#|b)?(?:maj7|maj9|maj11|maj13|m7b5|mMaj7|m7|m6|m9|m11|m13|m|dim|aug|sus2|sus4|add9|7|6|9|11|13)?(?:/[A-G](?:#|b)?)?(?:\\s*\\|\\s*[A-G](?:#|b)?(?:maj7|maj9|maj11|maj13|m7b5|mMaj7|m7|m6|m9|m11|m13|m|dim|aug|sus2|sus4|add9|7|6|9|11|13)?(?:/[A-G](?:#|b)?)?)*)\\s*(?:\\((?:\\d+|\\d+x)\\)|x\\d+)?\\s*$"
+    }
+  },
+  "validation": {
+    "strictness": "hybrid",
+    "unbalancedBracketsAreErrors": true,
+    "mixedHebrewAndEnglishAreErrors": true,
+    "invalidChordInsideBracketsAreErrors": true,
+    "unknownMetadataKeysAreWarnings": false,
+    "unknownMetadataKeysAreErrors": true
+  },
+  "direction": {
+    "rtlScripts": ["Hebrew"],
+    "ltrScripts": ["Latin"],
+    "skipPrefixes": ["^\\s*(?:\\[[^\\]]+\\]\\s*)*"],
+    "useFirstStrongCharacter": true
+  },
+  "export": {
+    "newline": "lf",
+    "preserveUnknownMetadata": true
+  }
+}

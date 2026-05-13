@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/chords/parser.ts","./src/chords/storage.ts","./src/chords/types.ts","./src/components/chordseditor.tsx","./src/components/documentpreview.tsx","./src/components/metadataform.tsx"],"version":"5.9.3"}

@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&display=swap');
+
+:root {
+  color-scheme: light;
+  font-family: 'Miriam Libre', serif;
+  background: #f8fafc;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.app-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.primary-button,
+.secondary-button,
+.ghost-button {
+  border-radius: 0;
+  padding: 9px 13px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  background: #fff;
+  color: #111827;
+}
+
+.primary-button {
+  border-color: #111827;
+}
+
+.secondary-button {
+  border-color: #cbd5e1;
+}
+
+.ghost-button {
+  background: #fff;
+}
+
+.ghost-button.danger {
+  color: #b91c1c;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: 18px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+}
+
+.metadata-panel {
+  padding: 16px;
+}
+
+.editor-panel {
+  min-height: 72vh;
+  padding: 16px;
+}
+
+.panel-title-row,
+.chip,
+.diagnostics-panel,
+.diagnostics-list,
+.diagnostic,
+.diagnostic-ok {
+  display: none;
+}
+
+.metadata-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 10px;
+}
+
+.field label {
+  display: grid;
+  gap: 6px;
+}
+
+.field span {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: capitalize;
+}
+
+.field input,
+.extra-metadata-row input {
+  border-radius: 0;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  padding: 11px 12px;
+}
+
+.extra-metadata {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.extra-metadata-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.editor-host {
+  min-height: calc(72vh - 32px);
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+@media (max-width: 1100px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .editor-panel {
+    min-height: 58vh;
+  }
+
+  .editor-host {
+    min-height: 50vh;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 14px;
+  }
+
+  .topbar {
+    flex-direction: column;
+  }
+
+  .extra-metadata-row {
+    grid-template-columns: 1fr;
+  }
+}
